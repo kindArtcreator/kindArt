@@ -15,16 +15,16 @@
 	<!-- 默认的注解映射的支持 -->
 	<mvc:annotation-driven />
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-	<context:component-scan base-package="com.lrd.wechat.controller" />
-	<context:component-scan base-package="com.lrd.wechat.action" />
-	<context:component-scan base-package="com.lrd.wechat.service.impl" />
-	<!-- 自动扫描servlet -->
-	<context:component-scan base-package="com.lrd.wechat.servlet" />
+	<context:component-scan base-package="com.kindArt.manager.controller" />
+	<context:component-scan base-package="com.kindArt.manager.service" />
+	<context:component-scan base-package="com.kindArt.manager.service.impl" />
+	<!-- 自动扫描servlet 
+	<context:component-scan base-package="com.kindArt.manager.servlet" />-->
 	
-	<!-- 自动扫描该包，定时任务 -->
-	<context:component-scan base-package="com.lrd.wechat.task"/>
+	<!-- 自动扫描该包，定时任务
+	<context:component-scan base-package="com.kindArt.manager.task"/>
 	<task:annotation-driven scheduler="accessTokenScheduler" mode="proxy"/> 
-	<task:scheduler id="accessTokenScheduler" pool-size="1"/>
+	<task:scheduler id="accessTokenScheduler" pool-size="1"/> -->
 	
 	<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter"
