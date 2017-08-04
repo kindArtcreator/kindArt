@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kindArt.manager.dao.UserBaseInfoMapper">
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.UserBaseInfo">
+    <id column="user_no" jdbcType="VARCHAR" property="userNo" />
+    <result column="head_sculpture" jdbcType="VARCHAR" property="headSculpture" />
+    <result column="my_nickname" jdbcType="VARCHAR" property="myNickname" />
+    <result column="my_phone" jdbcType="VARCHAR" property="myPhone" />
+    <result column="commended_num" jdbcType="INTEGER" property="commendedNum" />
+    <result column="fans_num" jdbcType="INTEGER" property="fansNum" />
+    <result column="follow_num" jdbcType="INTEGER" property="followNum" />
+    <result column="my_tag" jdbcType="VARCHAR" property="myTag" />
+    <result column="my_position" jdbcType="VARCHAR" property="myPosition" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="my_address" jdbcType="VARCHAR" property="myAddress" />
+    <result column="signature" jdbcType="VARCHAR" property="signature" />
+    <result column="shared_num" jdbcType="INTEGER" property="sharedNum" />
+    <result column="share_num" jdbcType="INTEGER" property="shareNum" />
+    <result column="wechat_num" jdbcType="VARCHAR" property="wechatNum" />
+    <result column="qq_num" jdbcType="VARCHAR" property="qqNum" />
+    <result column="blog_num" jdbcType="VARCHAR" property="blogNum" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_no, head_sculpture, my_nickname, my_phone, commended_num, fans_num, follow_num, 
+    my_tag, my_position, sex, birthday, my_address, signature, shared_num, share_num, 
+    wechat_num, qq_num, blog_num, register_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_base_info
+    where user_no = #{userNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_base_info
+    where user_no = #{userNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.UserBaseInfo">
+    insert into user_base_info (user_no, head_sculpture, my_nickname, 
+      my_phone, commended_num, fans_num, 
+      follow_num, my_tag, my_position, 
+      sex, birthday, my_address, 
+      signature, shared_num, share_num, 
+      wechat_num, qq_num, blog_num, 
+      register_time)
+    values (#{userNo,jdbcType=VARCHAR}, #{headSculpture,jdbcType=VARCHAR}, #{myNickname,jdbcType=VARCHAR}, 
+      #{myPhone,jdbcType=VARCHAR}, #{commendedNum,jdbcType=INTEGER}, #{fansNum,jdbcType=INTEGER}, 
+      #{followNum,jdbcType=INTEGER}, #{myTag,jdbcType=VARCHAR}, #{myPosition,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{myAddress,jdbcType=VARCHAR}, 
+      #{signature,jdbcType=VARCHAR}, #{sharedNum,jdbcType=INTEGER}, #{shareNum,jdbcType=INTEGER}, 
+      #{wechatNum,jdbcType=VARCHAR}, #{qqNum,jdbcType=VARCHAR}, #{blogNum,jdbcType=VARCHAR}, 
+      #{registerTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.UserBaseInfo">
+    insert into user_base_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userNo != null">
+        user_no,
+      </if>
+      <if test="headSculpture != null">
+        head_sculpture,
+      </if>
+      <if test="myNickname != null">
+        my_nickname,
+      </if>
+      <if test="myPhone != null">
+        my_phone,
+      </if>
+      <if test="commendedNum != null">
+        commended_num,
+      </if>
+      <if test="fansNum != null">
+        fans_num,
+      </if>
+      <if test="followNum != null">
+        follow_num,
+      </if>
+      <if test="myTag != null">
+        my_tag,
+      </if>
+      <if test="myPosition != null">
+        my_position,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="myAddress != null">
+        my_address,
+      </if>
+      <if test="signature != null">
+        signature,
+      </if>
+      <if test="sharedNum != null">
+        shared_num,
+      </if>
+      <if test="shareNum != null">
+        share_num,
+      </if>
+      <if test="wechatNum != null">
+        wechat_num,
+      </if>
+      <if test="qqNum != null">
+        qq_num,
+      </if>
+      <if test="blogNum != null">
+        blog_num,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userNo != null">
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="headSculpture != null">
+        #{headSculpture,jdbcType=VARCHAR},
+      </if>
+      <if test="myNickname != null">
+        #{myNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="myPhone != null">
+        #{myPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="commendedNum != null">
+        #{commendedNum,jdbcType=INTEGER},
+      </if>
+      <if test="fansNum != null">
+        #{fansNum,jdbcType=INTEGER},
+      </if>
+      <if test="followNum != null">
+        #{followNum,jdbcType=INTEGER},
+      </if>
+      <if test="myTag != null">
+        #{myTag,jdbcType=VARCHAR},
+      </if>
+      <if test="myPosition != null">
+        #{myPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="myAddress != null">
+        #{myAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null">
+        #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="sharedNum != null">
+        #{sharedNum,jdbcType=INTEGER},
+      </if>
+      <if test="shareNum != null">
+        #{shareNum,jdbcType=INTEGER},
+      </if>
+      <if test="wechatNum != null">
+        #{wechatNum,jdbcType=VARCHAR},
+      </if>
+      <if test="qqNum != null">
+        #{qqNum,jdbcType=VARCHAR},
+      </if>
+      <if test="blogNum != null">
+        #{blogNum,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.UserBaseInfo">
+    update user_base_info
+    <set>
+      <if test="headSculpture != null">
+        head_sculpture = #{headSculpture,jdbcType=VARCHAR},
+      </if>
+      <if test="myNickname != null">
+        my_nickname = #{myNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="myPhone != null">
+        my_phone = #{myPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="commendedNum != null">
+        commended_num = #{commendedNum,jdbcType=INTEGER},
+      </if>
+      <if test="fansNum != null">
+        fans_num = #{fansNum,jdbcType=INTEGER},
+      </if>
+      <if test="followNum != null">
+        follow_num = #{followNum,jdbcType=INTEGER},
+      </if>
+      <if test="myTag != null">
+        my_tag = #{myTag,jdbcType=VARCHAR},
+      </if>
+      <if test="myPosition != null">
+        my_position = #{myPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="myAddress != null">
+        my_address = #{myAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null">
+        signature = #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="sharedNum != null">
+        shared_num = #{sharedNum,jdbcType=INTEGER},
+      </if>
+      <if test="shareNum != null">
+        share_num = #{shareNum,jdbcType=INTEGER},
+      </if>
+      <if test="wechatNum != null">
+        wechat_num = #{wechatNum,jdbcType=VARCHAR},
+      </if>
+      <if test="qqNum != null">
+        qq_num = #{qqNum,jdbcType=VARCHAR},
+      </if>
+      <if test="blogNum != null">
+        blog_num = #{blogNum,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_no = #{userNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.UserBaseInfo">
+    update user_base_info
+    set head_sculpture = #{headSculpture,jdbcType=VARCHAR},
+      my_nickname = #{myNickname,jdbcType=VARCHAR},
+      my_phone = #{myPhone,jdbcType=VARCHAR},
+      commended_num = #{commendedNum,jdbcType=INTEGER},
+      fans_num = #{fansNum,jdbcType=INTEGER},
+      follow_num = #{followNum,jdbcType=INTEGER},
+      my_tag = #{myTag,jdbcType=VARCHAR},
+      my_position = #{myPosition,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      my_address = #{myAddress,jdbcType=VARCHAR},
+      signature = #{signature,jdbcType=VARCHAR},
+      shared_num = #{sharedNum,jdbcType=INTEGER},
+      share_num = #{shareNum,jdbcType=INTEGER},
+      wechat_num = #{wechatNum,jdbcType=VARCHAR},
+      qq_num = #{qqNum,jdbcType=VARCHAR},
+      blog_num = #{blogNum,jdbcType=VARCHAR},
+      register_time = #{registerTime,jdbcType=TIMESTAMP}
+    where user_no = #{userNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

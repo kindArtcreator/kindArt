@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kindArt.manager.dao.TagDynamicRelationMapper">
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.TagDynamicRelation">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="activity_no" jdbcType="VARCHAR" property="activityNo" />
+    <result column="tag_no" jdbcType="VARCHAR" property="tagNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, activity_no, tag_no
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tag_dynamic_relation
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tag_dynamic_relation
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.TagDynamicRelation">
+    insert into tag_dynamic_relation (uuid, activity_no, tag_no
+      )
+    values (#{uuid,jdbcType=VARCHAR}, #{activityNo,jdbcType=VARCHAR}, #{tagNo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.TagDynamicRelation">
+    insert into tag_dynamic_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="activityNo != null">
+        activity_no,
+      </if>
+      <if test="tagNo != null">
+        tag_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="activityNo != null">
+        #{activityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tagNo != null">
+        #{tagNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.TagDynamicRelation">
+    update tag_dynamic_relation
+    <set>
+      <if test="activityNo != null">
+        activity_no = #{activityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tagNo != null">
+        tag_no = #{tagNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.TagDynamicRelation">
+    update tag_dynamic_relation
+    set activity_no = #{activityNo,jdbcType=VARCHAR},
+      tag_no = #{tagNo,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

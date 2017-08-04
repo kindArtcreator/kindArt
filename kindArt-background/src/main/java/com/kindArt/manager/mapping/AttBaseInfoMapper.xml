@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kindArt.manager.dao.AttBaseInfoMapper">
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.AttBaseInfo">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="att_address" jdbcType="VARCHAR" property="attAddress" />
+    <result column="att_name" jdbcType="VARCHAR" property="attName" />
+    <result column="att_type" jdbcType="VARCHAR" property="attType" />
+    <result column="att_size" jdbcType="VARCHAR" property="attSize" />
+    <result column="att_classification" jdbcType="VARCHAR" property="attClassification" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, att_address, att_name, att_type, att_size, att_classification
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from att_base_info
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from att_base_info
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.AttBaseInfo">
+    insert into att_base_info (uuid, att_address, att_name, 
+      att_type, att_size, att_classification
+      )
+    values (#{uuid,jdbcType=VARCHAR}, #{attAddress,jdbcType=VARCHAR}, #{attName,jdbcType=VARCHAR}, 
+      #{attType,jdbcType=VARCHAR}, #{attSize,jdbcType=VARCHAR}, #{attClassification,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.AttBaseInfo">
+    insert into att_base_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="attAddress != null">
+        att_address,
+      </if>
+      <if test="attName != null">
+        att_name,
+      </if>
+      <if test="attType != null">
+        att_type,
+      </if>
+      <if test="attSize != null">
+        att_size,
+      </if>
+      <if test="attClassification != null">
+        att_classification,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="attAddress != null">
+        #{attAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="attName != null">
+        #{attName,jdbcType=VARCHAR},
+      </if>
+      <if test="attType != null">
+        #{attType,jdbcType=VARCHAR},
+      </if>
+      <if test="attSize != null">
+        #{attSize,jdbcType=VARCHAR},
+      </if>
+      <if test="attClassification != null">
+        #{attClassification,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.AttBaseInfo">
+    update att_base_info
+    <set>
+      <if test="attAddress != null">
+        att_address = #{attAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="attName != null">
+        att_name = #{attName,jdbcType=VARCHAR},
+      </if>
+      <if test="attType != null">
+        att_type = #{attType,jdbcType=VARCHAR},
+      </if>
+      <if test="attSize != null">
+        att_size = #{attSize,jdbcType=VARCHAR},
+      </if>
+      <if test="attClassification != null">
+        att_classification = #{attClassification,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.AttBaseInfo">
+    update att_base_info
+    set att_address = #{attAddress,jdbcType=VARCHAR},
+      att_name = #{attName,jdbcType=VARCHAR},
+      att_type = #{attType,jdbcType=VARCHAR},
+      att_size = #{attSize,jdbcType=VARCHAR},
+      att_classification = #{attClassification,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kindArt.manager.dao.MesComInfoMapper">
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.MesComInfo">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="message_parent_no" jdbcType="VARCHAR" property="messageParentNo" />
+    <result column="message_comment" jdbcType="VARCHAR" property="messageComment" />
+    <result column="message_publisher_no" jdbcType="VARCHAR" property="messagePublisherNo" />
+    <result column="message_publisher_time" jdbcType="TIMESTAMP" property="messagePublisherTime" />
+    <result column="message_way" jdbcType="VARCHAR" property="messageWay" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, message_parent_no, message_comment, message_publisher_no, message_publisher_time, 
+    message_way
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mes_com_info
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from mes_com_info
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.MesComInfo">
+    insert into mes_com_info (uuid, message_parent_no, message_comment, 
+      message_publisher_no, message_publisher_time, 
+      message_way)
+    values (#{uuid,jdbcType=VARCHAR}, #{messageParentNo,jdbcType=VARCHAR}, #{messageComment,jdbcType=VARCHAR}, 
+      #{messagePublisherNo,jdbcType=VARCHAR}, #{messagePublisherTime,jdbcType=TIMESTAMP}, 
+      #{messageWay,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.MesComInfo">
+    insert into mes_com_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="messageParentNo != null">
+        message_parent_no,
+      </if>
+      <if test="messageComment != null">
+        message_comment,
+      </if>
+      <if test="messagePublisherNo != null">
+        message_publisher_no,
+      </if>
+      <if test="messagePublisherTime != null">
+        message_publisher_time,
+      </if>
+      <if test="messageWay != null">
+        message_way,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="messageParentNo != null">
+        #{messageParentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="messageComment != null">
+        #{messageComment,jdbcType=VARCHAR},
+      </if>
+      <if test="messagePublisherNo != null">
+        #{messagePublisherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="messagePublisherTime != null">
+        #{messagePublisherTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageWay != null">
+        #{messageWay,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.MesComInfo">
+    update mes_com_info
+    <set>
+      <if test="messageParentNo != null">
+        message_parent_no = #{messageParentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="messageComment != null">
+        message_comment = #{messageComment,jdbcType=VARCHAR},
+      </if>
+      <if test="messagePublisherNo != null">
+        message_publisher_no = #{messagePublisherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="messagePublisherTime != null">
+        message_publisher_time = #{messagePublisherTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageWay != null">
+        message_way = #{messageWay,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.MesComInfo">
+    update mes_com_info
+    set message_parent_no = #{messageParentNo,jdbcType=VARCHAR},
+      message_comment = #{messageComment,jdbcType=VARCHAR},
+      message_publisher_no = #{messagePublisherNo,jdbcType=VARCHAR},
+      message_publisher_time = #{messagePublisherTime,jdbcType=TIMESTAMP},
+      message_way = #{messageWay,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

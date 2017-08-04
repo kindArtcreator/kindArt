@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kindArt.manager.dao.FindBaseInfoMapper">
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.FindBaseInfo">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="publisher_no" jdbcType="VARCHAR" property="publisherNo" />
+    <result column="publisher_time" jdbcType="TIMESTAMP" property="publisherTime" />
+    <result column="activity_title" jdbcType="VARCHAR" property="activityTitle" />
+    <result column="commended_num" jdbcType="INTEGER" property="commendedNum" />
+    <result column="collection_num" jdbcType="INTEGER" property="collectionNum" />
+    <result column="follow_num" jdbcType="INTEGER" property="followNum" />
+    <result column="share_num" jdbcType="INTEGER" property="shareNum" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="village" jdbcType="VARCHAR" property="village" />
+    <result column="publish_address" jdbcType="VARCHAR" property="publishAddress" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.kindArt.manager.domain.FindBaseInfo">
+    <result column="activity_content" jdbcType="LONGVARBINARY" property="activityContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, publisher_no, publisher_time, activity_title, commended_num, collection_num, 
+    follow_num, share_num, province, city, area, village, publish_address
+  </sql>
+  <sql id="Blob_Column_List">
+    activity_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from find_base_info
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from find_base_info
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.FindBaseInfo">
+    insert into find_base_info (uuid, publisher_no, publisher_time, 
+      activity_title, commended_num, collection_num, 
+      follow_num, share_num, province, 
+      city, area, village, 
+      publish_address, activity_content)
+    values (#{uuid,jdbcType=VARCHAR}, #{publisherNo,jdbcType=VARCHAR}, #{publisherTime,jdbcType=TIMESTAMP}, 
+      #{activityTitle,jdbcType=VARCHAR}, #{commendedNum,jdbcType=INTEGER}, #{collectionNum,jdbcType=INTEGER}, 
+      #{followNum,jdbcType=INTEGER}, #{shareNum,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{village,jdbcType=VARCHAR}, 
+      #{publishAddress,jdbcType=VARCHAR}, #{activityContent,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.FindBaseInfo">
+    insert into find_base_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="publisherNo != null">
+        publisher_no,
+      </if>
+      <if test="publisherTime != null">
+        publisher_time,
+      </if>
+      <if test="activityTitle != null">
+        activity_title,
+      </if>
+      <if test="commendedNum != null">
+        commended_num,
+      </if>
+      <if test="collectionNum != null">
+        collection_num,
+      </if>
+      <if test="followNum != null">
+        follow_num,
+      </if>
+      <if test="shareNum != null">
+        share_num,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="village != null">
+        village,
+      </if>
+      <if test="publishAddress != null">
+        publish_address,
+      </if>
+      <if test="activityContent != null">
+        activity_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="publisherNo != null">
+        #{publisherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="publisherTime != null">
+        #{publisherTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityTitle != null">
+        #{activityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="commendedNum != null">
+        #{commendedNum,jdbcType=INTEGER},
+      </if>
+      <if test="collectionNum != null">
+        #{collectionNum,jdbcType=INTEGER},
+      </if>
+      <if test="followNum != null">
+        #{followNum,jdbcType=INTEGER},
+      </if>
+      <if test="shareNum != null">
+        #{shareNum,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="village != null">
+        #{village,jdbcType=VARCHAR},
+      </if>
+      <if test="publishAddress != null">
+        #{publishAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="activityContent != null">
+        #{activityContent,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.FindBaseInfo">
+    update find_base_info
+    <set>
+      <if test="publisherNo != null">
+        publisher_no = #{publisherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="publisherTime != null">
+        publisher_time = #{publisherTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityTitle != null">
+        activity_title = #{activityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="commendedNum != null">
+        commended_num = #{commendedNum,jdbcType=INTEGER},
+      </if>
+      <if test="collectionNum != null">
+        collection_num = #{collectionNum,jdbcType=INTEGER},
+      </if>
+      <if test="followNum != null">
+        follow_num = #{followNum,jdbcType=INTEGER},
+      </if>
+      <if test="shareNum != null">
+        share_num = #{shareNum,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="village != null">
+        village = #{village,jdbcType=VARCHAR},
+      </if>
+      <if test="publishAddress != null">
+        publish_address = #{publishAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="activityContent != null">
+        activity_content = #{activityContent,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kindArt.manager.domain.FindBaseInfo">
+    update find_base_info
+    set publisher_no = #{publisherNo,jdbcType=VARCHAR},
+      publisher_time = #{publisherTime,jdbcType=TIMESTAMP},
+      activity_title = #{activityTitle,jdbcType=VARCHAR},
+      commended_num = #{commendedNum,jdbcType=INTEGER},
+      collection_num = #{collectionNum,jdbcType=INTEGER},
+      follow_num = #{followNum,jdbcType=INTEGER},
+      share_num = #{shareNum,jdbcType=INTEGER},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      village = #{village,jdbcType=VARCHAR},
+      publish_address = #{publishAddress,jdbcType=VARCHAR},
+      activity_content = #{activityContent,jdbcType=LONGVARBINARY}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.FindBaseInfo">
+    update find_base_info
+    set publisher_no = #{publisherNo,jdbcType=VARCHAR},
+      publisher_time = #{publisherTime,jdbcType=TIMESTAMP},
+      activity_title = #{activityTitle,jdbcType=VARCHAR},
+      commended_num = #{commendedNum,jdbcType=INTEGER},
+      collection_num = #{collectionNum,jdbcType=INTEGER},
+      follow_num = #{followNum,jdbcType=INTEGER},
+      share_num = #{shareNum,jdbcType=INTEGER},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      village = #{village,jdbcType=VARCHAR},
+      publish_address = #{publishAddress,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+</mapper>
