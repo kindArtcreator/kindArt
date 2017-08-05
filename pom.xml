@@ -203,25 +203,20 @@
 		<!-- log end -->
 
 		<!-- 映入JSON -->
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.13</version>
-		</dependency>
 		<dependency>  
             <groupId>com.fasterxml.jackson.core</groupId>  
             <artifactId>jackson-core</artifactId>  
-            <version>2.1.0</version>  
+            <version>2.7.0</version>  
         </dependency>  
         <dependency>  
             <groupId>com.fasterxml.jackson.core</groupId>  
             <artifactId>jackson-databind</artifactId>  
-            <version>2.1.0</version>  
+            <version>2.7.0</version>  
         </dependency>  
         <dependency>  
             <groupId>com.fasterxml.jackson.core</groupId>  
             <artifactId>jackson-annotations</artifactId>  
-            <version>2.1.0</version>  
+            <version>2.7.0</version>  
         </dependency>  
 		<!-- 上传组件包 -->
 		<dependency>
