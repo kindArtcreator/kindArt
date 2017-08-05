@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>作品发布</title>
+	<link rel="stylesheet" href="../../ylcss/jmobile/jquery.mobile-1.4.5.min.css">
+ 	<script src="../../yljs/jquery/jquery-1.10.2.min.js"></script>
+ 	
+ 	<script src="../../yljs/jmobile/jquery.mobile-1.4.5.min.js"></script>
+ 	<script type="text/javascript">
+
+	//选择图片
+	function xmTanUploadImg(obj) {
+		var yl_length = obj.files.length;
+		if(yl_length>9){
+			yl_length = 9;
+		}
+		var html = ''; 
+		for(var i=0;i<yl_length; i++){
+			reads(obj.files[i]);
+		}
+	}
+
+ 	//预览
+	function reads(fil){
+	    var reader = new FileReader();
+	    reader.readAsDataURL(fil);
+	    reader.onload = function()
+	    {
+	        document.getElementById("yulan").innerHTML += "<img src='"+reader.result+"' style='height: 23%; width: 33%;'>";
+	        
+	    };
+	}
+	
+		//触发上传操作
+		function yl_upload(){
+			$("#HTML_Browse_up").click();
+		}
+	
+	</script>
+
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header" >
+       <a href="index.html" class="ui-btn ui-corner-all ui-shadow ui-icon-carat-l ui-btn-icon-left" >返回</a>
+    <h1>发布作品</h1>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+  
+	  <div>
+	  	<input type="text" value="请输入标题" onfocus="this.value=''" onblur="if(this.value==''){this.value='请输入标题'}">
+	  </div>
+	  
+	  <hr>
+	   
+	   <div class="ui-field-contain">
+        <textarea name="addinfo" id="info" onfocus="this.value=''" onblur="if(this.value==''){this.value='说说你的心得吧！'}">说说你的心得吧！ </textarea>
+      </div>
+       <div id='yulan'> </div>
+	  <div >
+		  <input id="HTML_Browse_up" type="file" onchange="xmTanUploadImg(this)" accept="image/*"  multiple name="HTML_Browse_up"> 
+	  </div>
+  
+  	  <div id="biaoqian" style="margin-top: 10px;">
+  	   	<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-tag ui-btn-icon-right" >标签</a>
+  	  </div>
+  
+  </div>
+
+  <div data-role="footer" data-position="fixed" style="background-color: red;" class="ui-corner-all">
+        <h1>发   布</h1>
+    </div>
+</div> 
+
+</body>
+</html>

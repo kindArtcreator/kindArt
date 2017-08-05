@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>我的测试页面</title>
+	<link rel="stylesheet" href="../../ylcss/jmobile/jquery.mobile-1.4.5.min.css">
+ 	<script src="../../yljs/jquery/jquery-1.10.2.min.js"></script>
+ 	
+ 	<script src="../../yljs/jmobile/jquery.mobile-1.4.5.min.js"></script>
+ 	
+ 	<script type="text/javascript"><!--
+
+	//选择图片
+	function xmTanUploadImg(obj) {
+		var yl_length = obj.files.length;
+		var html = ''; 
+		for(var i=0;i<yl_length; i++){
+			reads(obj.files[i]);
+		}
+	}
+
+ 	//预览
+	function reads(fil){
+	    var reader = new FileReader();
+	    reader.readAsDataURL(fil);
+	    reader.onload = function()
+	    {
+	        document.getElementById("dd").innerHTML += "<img src='"+reader.result+"' style='height: 40px; width: 40px;'>";
+	        
+	    };
+	}
+   --></script>
+</head>
+<body>
+
+ 
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>多行</h1>
+  </div>
+<input type="file" style="/* visibility: hidden */" capture="camera" accept="image/*,video/*" name="" value="" >fff
+  <div data-role="main" class="ui-content">
+		<div style="border:2px dashed red;">
+            <p>
+       		        图片上传前预览：<input type="file" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" multiple accept=" accept="image/*"/>
+            </p>
+        </div>
+        <hr />
+
+		<div id='dd'></div>
+  	
+  </div>
+</div> 
+</body>
+</html>

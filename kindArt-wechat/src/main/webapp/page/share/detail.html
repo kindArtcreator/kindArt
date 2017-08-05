@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>作品展示</title>
+	
+	<link rel="stylesheet" href="../../ylcss/jmobile/jquery.mobile-1.4.5.min.css">
+ 	<link href="../../ylcss/autoImg/datouwang.css" rel="stylesheet" type="text/css" />
+ 	
+ 	<script src="../../yljs/jquery/jquery-1.10.2.min.js"></script>
+ 	<script src="../../yljs/jmobile/jquery.mobile-1.4.5.min.js"></script>
+	<script src="../../yljs/unslider/unslider.js"></script>
+	
+	<style type="text/css">
+		.banner { position: relative; overflow: auto; }
+    	.banner li { list-style: none; }
+        .banner ul li { float: left; }
+	</style>
+ 	<script type="text/javascript">
+	 	$(function() {
+	 	    var slidey = $('.banner').unslider({
+	 	    speed: 500,               
+	 		delay: 3000,            
+	 		complete: function() {}, 
+	 		keys: true,             
+	 		dots: true,              
+	 		fluid: false
+	 	});
+	 	  data = slidey.data('unslider'); 
+	 	  data.move(2, function() {}); 
+	 	});
+ 	
+	</script>
+
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+	<div data-role="main" class="ui-content">
+  	  	 <div class="banner">
+		     <ul>
+		         <li style="width:100%;height:50px;background-color:red;">
+		             <h1>This is a slide.</h1>
+		         </li>
+		         <li style="width:100%;height:50px;background-color:yellow;">
+		             <h2>This is another slide.</h2>
+		         </li>
+		         <li style="width:100%;height:50px;background-color:blue;">
+		             <h3>This is a final slide.</h3>
+		         </li>
+		      </ul>
+		 </div>  
+		
+		 <p>享有过他遭打击发哦盛世嫡妃</p>
+	</div>	
+	
+  	<div data-role="footer" data-position="fixed" data-tap-toggle="false" id="demo">
+        <div data-role="navbar">
+            <ul>
+                <li><a onclick="app.show('pgJgbfMain','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/home-black.png"/><br/>社区</a></li>
+                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/eye-black.png"/><br/>发现</a></li>
+                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/mail-black.png"/><br/>消息</a></li>
+                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/user-black.png"/><br/>我的</a></li>
+            </ul>
+        </div>    
+    </div>
+</div> 
+
+</body>
+</html>

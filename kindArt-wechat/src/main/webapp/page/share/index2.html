@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>我的测试页面</title>
+	<link rel="stylesheet" href="../../ylcss/jmobile/jquery.mobile-1.4.5.min.css">
+ 	<script src="../../yljs/jquery/jquery-1.10.2.min.js"></script>
+ 	
+ 	<script src="../../yljs/jmobile/jquery.mobile-1.4.5.min.js"></script>
+ 	<script type="text/javascript"><!--
+     
+ 	 var Ajax = function ()  
+     {  
+         $.getJSON ("a.json", function (data)  
+         {  
+        	 alert('加载中');
+             $.each (data, function (i, item)  
+             {  
+                 $ ("#disp").append ("<h3>" + item.name + "</h3>");  
+                 $ ("#disp").append ("<p>" + item.sex + "</p>");  
+                 $ ("#disp").append ("<p>" + item.email + "</p>");  
+             });  
+         });  
+     }  
+     
+	</script>
+
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header" >
+    <div data-role="navbar">
+      <ul>
+        <li style="width: 15%;">
+        	<a href="fabu.html" data-icon="camera" ></a>
+        </li>
+        <li style="width: 70%;"><a href="#anylink" data-icon="refresh"></a></li>
+        <li style="width: 15%;"><a href="#myPopup2" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="#bangzhu"  data-icon="bullets" id="bangzhu"></a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+  
+  
+	    <p>我的内容..</p>
+	    <p>我的内容..</p>
+	    <p>我的内容..</p>
+	    <p>我的内容..</p>
+	    <p>我的内容..</p>
+	   <div id="disp"></div>  
+	    
+	    
+	   <div data-role="popup" id="myPopup2" class="ui-content">
+	      <div data-role="controlgroup" data-type="vertical" >
+		      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left" >消息</a>
+		      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" >首页</a>
+		      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-phone ui-btn-icon-left" >帮助</a>
+	  	  </div>
+   		</div> 
+	  
+  </div>
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" id="demo">
+        <div data-role="navbar">
+            <ul>
+                <li><a onclick="app.show('pgJgbfMain','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/home-black.png"/><br/>社区</a></li>
+                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/eye-black.png"/><br/>发现</a></li>
+                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/mail-black.png"/><br/>消息</a></li>
+                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/user-black.png"/><br/>我的</a></li>
+            </ul>
+        </div>    
+    </div>
+</div> 
+
+</body>
+</html>
