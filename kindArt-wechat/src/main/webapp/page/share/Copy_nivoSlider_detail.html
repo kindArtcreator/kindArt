@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>作品展示</title>
+	
+	<link rel="stylesheet" href="../../ylcss/jmobile/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="../../ylcss/nivoSlider/themes/default/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../ylcss/nivoSlider/themes/light/light.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../ylcss/nivoSlider/themes/dark/dark.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../ylcss/nivoSlider/themes/bar/bar.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../ylcss/nivoSlider/nivo-slider.css" type="text/css" media="screen" />
+	
+ 	<script src="../../yljs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../../yljs/jquery/jquery.nivo.slider.js"></script>
+    
+    
+    <style type="text/css">
+		body {
+			font:14px/1.6 Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
+			color:#333;
+			background:#eee;
+		}
+		
+		a, a:visited {
+			color:blue;
+			text-decoration:none;
+		}
+		a:hover, a:active {
+			color:#000;
+			text-decoration:none;
+		}
+		
+		#dev7link {
+		    position:absolute;
+		    top:0;
+		    left:50px;
+		    background:url(../../ylimg/custom/dev7logo.png) no-repeat;
+		    width:60px;
+		    height:67px;
+		    border:0;
+		    display:block;
+		    text-indent:-9999px;
+		}
+		
+		.slider-wrapper { 
+			width: 50%; 
+			margin: 100px auto;
+		}
+		
+		/*====================*/
+		/*=== Other Styles ===*/
+		/*====================*/
+		.clear {
+			clear:both;
+		}
+	</style> 	
+	
+    <script type="text/javascript">
+	    $(window).load(function() {
+	        $('#slider').nivoSlider();
+	    });
+	</script>
+
+</head>
+<body>
+
+	<div id="wrapper">
+        <a href="http://dev7studios.com" id="dev7link" title="Go to dev7studios">dev7studios</a>
+
+        <div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider">
+                <img src="../../ylimg/custom/toystory.jpg" data-thumb="../../ylimg/custom/toystory.jpg" alt="" />
+                <a href="http://dev7studios.com"><img src="../../ylimg/custom/up.jpg" data-thumb="../../ylimg/custom/up.jpg" alt="" title="This is an example of a caption" /></a>
+                <img src="../../ylimg/custom/walle.jpg" data-thumb="../../ylimg/custom/walle.jpg" alt="" data-transition="slideInLeft" />
+                <img src="../../ylimg/custom/nemo.jpg" data-thumb="../../ylimg/custom/nemo.jpg" alt="" title="#htmlcaption" />
+            </div>
+            <div id="htmlcaption" class="nivo-html-caption">
+                <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. 
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

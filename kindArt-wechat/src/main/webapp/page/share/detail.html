@@ -7,66 +7,95 @@
 	<title>作品展示</title>
 	
 	<link rel="stylesheet" href="../../ylcss/jmobile/jquery.mobile-1.4.5.min.css">
- 	<link href="../../ylcss/autoImg/datouwang.css" rel="stylesheet" type="text/css" />
- 	
- 	<script src="../../yljs/jquery/jquery-1.10.2.min.js"></script>
- 	<script src="../../yljs/jmobile/jquery.mobile-1.4.5.min.js"></script>
-	<script src="../../yljs/unslider/unslider.js"></script>
+	<link rel="stylesheet" href="../../ylcss/nivoSlider/themes/default/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../ylcss/nivoSlider/nivo-slider.css" type="text/css" media="screen" />
 	
-	<style type="text/css">
-		.banner { position: relative; overflow: auto; }
-    	.banner li { list-style: none; }
-        .banner ul li { float: left; }
-	</style>
- 	<script type="text/javascript">
-	 	$(function() {
-	 	    var slidey = $('.banner').unslider({
-	 	    speed: 500,               
-	 		delay: 3000,            
-	 		complete: function() {}, 
-	 		keys: true,             
-	 		dots: true,              
-	 		fluid: false
-	 	});
-	 	  data = slidey.data('unslider'); 
-	 	  data.move(2, function() {}); 
-	 	});
- 	
+ 	<script src="../../yljs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../../yljs/jquery/jquery.nivo.slider.js"></script>
+    
+    
+    <style type="text/css">
+		body {
+			font:14px/1.6 Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
+			color:#333;
+			background:#eee;
+		}
+		
+		a, a:visited {
+			color:blue;
+			text-decoration:none;
+		}
+		a:hover, a:active {
+			color:#000;
+			text-decoration:none;
+		}
+		
+		#dev7link {
+		    position:absolute;
+		    top:0;
+		    left:50px;
+		    background:url(../../ylimg/custom/dev7logo.png) no-repeat;
+		    width:60px;
+		    height:67px;
+		    border:0;
+		    display:block;
+		    text-indent:-9999px;
+		}
+		
+		.slider-wrapper { 
+			width: 50%; 
+			margin: 100px auto;
+		}
+		
+		/*====================*/
+		/*=== Other Styles ===*/
+		/*====================*/
+		.clear {
+			clear:both;
+		}
+	</style> 	
+	
+    <script type="text/javascript">
+	    $(window).load(function() {
+	        $('#slider').nivoSlider(
+	        );
+	    });
 	</script>
 
 </head>
 <body>
 
-<div data-role="page" id="pageone">
-	<div data-role="main" class="ui-content">
-  	  	 <div class="banner">
-		     <ul>
-		         <li style="width:100%;height:50px;background-color:red;">
-		             <h1>This is a slide.</h1>
-		         </li>
-		         <li style="width:100%;height:50px;background-color:yellow;">
-		             <h2>This is another slide.</h2>
-		         </li>
-		         <li style="width:100%;height:50px;background-color:blue;">
-		             <h3>This is a final slide.</h3>
-		         </li>
-		      </ul>
-		 </div>  
-		
-		 <p>享有过他遭打击发哦盛世嫡妃</p>
-	</div>	
-	
-  	<div data-role="footer" data-position="fixed" data-tap-toggle="false" id="demo">
-        <div data-role="navbar">
-            <ul>
-                <li><a onclick="app.show('pgJgbfMain','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/home-black.png"/><br/>社区</a></li>
-                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/eye-black.png"/><br/>发现</a></li>
-                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/mail-black.png"/><br/>消息</a></li>
-                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/user-black.png"/><br/>我的</a></li>
-            </ul>
-        </div>    
-    </div>
-</div> 
+	<div id="wrapper">
+	        <div class="slider-wrapper theme-default">
+	            <div id="slider" class="nivoSlider">
+	                <img src="../../ylimg/custom/toystory.jpg" data-thumb="../../ylimg/custom/toystory.jpg" alt="" />
+	                <a href="http://dev7studios.com"><img src="../../ylimg/custom/up.jpg" data-thumb="../../ylimg/custom/up.jpg" alt="" title="This is an example of a caption" /></a>
+	                <img src="../../ylimg/custom/walle.jpg" data-thumb="../../ylimg/custom/walle.jpg" alt="" data-transition="slideInLeft" />
+	                <img src="../../ylimg/custom/nemo.jpg" data-thumb="../../ylimg/custom/nemo.jpg" alt="" title="#htmlcaption" />
+	            </div>
+	            <div id="htmlcaption" class="nivo-html-caption">
+	                <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. 
+	            </div>
+	        </div>
+	    </div>
 
+	<div data-role="page" id="pageone">
+		
+		
+		
+	  	<div data-role="footer" data-position="fixed" data-tap-toggle="false" id="demo">
+	        <div data-role="navbar">
+	            <ul>
+	                <li><a onclick="app.show('pgJgbfMain','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/home-black.png"/><br/>社区</a></li>
+	                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/eye-black.png"/><br/>发现</a></li>
+	                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/mail-black.png"/><br/>消息</a></li>
+	                <li><a onclick="app.show('pgTgbf','pgJgbfXq')"><img src="../../ylimg/jmobile/icons-png/user-black.png"/><br/>我的</a></li>
+	            </ul>
+	        </div>    
+	    </div>
+	</div> 
+
+	
+	
 </body>
 </html>
