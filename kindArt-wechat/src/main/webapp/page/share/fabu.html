@@ -40,6 +40,51 @@
 			$("#HTML_Browse_up").click();
 		}
 	
+		
+		//请求json，输出是json
+		function requestJson() {
+			alert('ddd');
+
+			/* var jsonData = {  
+			        "userId" : "hezhen"
+			}; */
+
+			var jsonData = {
+				"activityObj" : {
+					"title" : "title1",
+					"content" : "content1",
+					"userId" : "hezhen"
+				},
+				"activityImgs" : [{
+					"imgSeq" : "imgSeq1",
+					"imgContent" : "imgContent1"
+				}],
+				"tags" : [ {
+					"tagId" : "tagId1",
+					"tagValue" : "tagValue1"
+				}, {
+					"tagId" : "tagId2",
+					"tagValue" : "tagValue2"
+				} ]
+			};
+			
+			
+			$.ajax({
+				type : 'post',
+				//url : '${pageContext.request.contextPath }/userBaseInfo/read',
+				url : '/kindArt-background/dynamicBaseInfo/insert',
+				contentType : 'application/json;charset=utf-8',//指定为json类型
+				//数据格式是json串，商品信息
+				data : JSON.stringify(jsonData),
+				success : function(data) {//返回json结果
+					alert(data);
+					alert(data.returnObj.code);
+				}
+			});
+		}
+
+		
+		
 	</script>
 
 </head>
@@ -74,7 +119,7 @@
   </div>
 
   <div data-role="footer" data-position="fixed" style="background-color: red;" class="ui-corner-all">
-        <h1>发   布</h1>
+        <a href="javascript:requestJson()"><h1>发   布</h1></a>
     </div>
 </div> 
 
