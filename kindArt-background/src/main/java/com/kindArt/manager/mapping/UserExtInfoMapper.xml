@@ -79,4 +79,160 @@
       related_user_no = #{relatedUserNo,jdbcType=VARCHAR}
     where uuid = #{uuid,jdbcType=VARCHAR}
   </update>
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.UserExtInfo">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="user_no" jdbcType="VARCHAR" property="userNo" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="related_user_no" jdbcType="VARCHAR" property="relatedUserNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, user_no, type, related_user_no
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_ext_info
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_ext_info
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.UserExtInfo">
+    insert into user_ext_info (uuid, user_no, type, 
+      related_user_no)
+    values (#{uuid,jdbcType=VARCHAR}, #{userNo,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{relatedUserNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.UserExtInfo">
+    insert into user_ext_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="userNo != null">
+        user_no,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="relatedUserNo != null">
+        related_user_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedUserNo != null">
+        #{relatedUserNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.UserExtInfo">
+    update user_ext_info
+    <set>
+      <if test="userNo != null">
+        user_no = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedUserNo != null">
+        related_user_no = #{relatedUserNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.UserExtInfo">
+    update user_ext_info
+    set user_no = #{userNo,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      related_user_no = #{relatedUserNo,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.UserExtInfo">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="user_no" jdbcType="VARCHAR" property="userNo" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="related_user_no" jdbcType="VARCHAR" property="relatedUserNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, user_no, type, related_user_no
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_ext_info
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_ext_info
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.UserExtInfo">
+    insert into user_ext_info (uuid, user_no, type, 
+      related_user_no)
+    values (#{uuid,jdbcType=VARCHAR}, #{userNo,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{relatedUserNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.UserExtInfo">
+    insert into user_ext_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="userNo != null">
+        user_no,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="relatedUserNo != null">
+        related_user_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedUserNo != null">
+        #{relatedUserNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.UserExtInfo">
+    update user_ext_info
+    <set>
+      <if test="userNo != null">
+        user_no = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedUserNo != null">
+        related_user_no = #{relatedUserNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.UserExtInfo">
+    update user_ext_info
+    set user_no = #{userNo,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      related_user_no = #{relatedUserNo,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
 </mapper>

@@ -79,4 +79,160 @@
       tag_type_name = #{tagTypeName,jdbcType=VARCHAR}
     where tag_no = #{tagNo,jdbcType=VARCHAR}
   </update>
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.TagBaseInfo">
+    <id column="tag_no" jdbcType="VARCHAR" property="tagNo" />
+    <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
+    <result column="tag_type_no" jdbcType="VARCHAR" property="tagTypeNo" />
+    <result column="tag_type_name" jdbcType="VARCHAR" property="tagTypeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tag_no, tag_name, tag_type_no, tag_type_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tag_base_info
+    where tag_no = #{tagNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tag_base_info
+    where tag_no = #{tagNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.TagBaseInfo">
+    insert into tag_base_info (tag_no, tag_name, tag_type_no, 
+      tag_type_name)
+    values (#{tagNo,jdbcType=VARCHAR}, #{tagName,jdbcType=VARCHAR}, #{tagTypeNo,jdbcType=VARCHAR}, 
+      #{tagTypeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.TagBaseInfo">
+    insert into tag_base_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tagNo != null">
+        tag_no,
+      </if>
+      <if test="tagName != null">
+        tag_name,
+      </if>
+      <if test="tagTypeNo != null">
+        tag_type_no,
+      </if>
+      <if test="tagTypeName != null">
+        tag_type_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tagNo != null">
+        #{tagNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tagName != null">
+        #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="tagTypeNo != null">
+        #{tagTypeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tagTypeName != null">
+        #{tagTypeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.TagBaseInfo">
+    update tag_base_info
+    <set>
+      <if test="tagName != null">
+        tag_name = #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="tagTypeNo != null">
+        tag_type_no = #{tagTypeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tagTypeName != null">
+        tag_type_name = #{tagTypeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tag_no = #{tagNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.TagBaseInfo">
+    update tag_base_info
+    set tag_name = #{tagName,jdbcType=VARCHAR},
+      tag_type_no = #{tagTypeNo,jdbcType=VARCHAR},
+      tag_type_name = #{tagTypeName,jdbcType=VARCHAR}
+    where tag_no = #{tagNo,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.TagBaseInfo">
+    <id column="tag_no" jdbcType="VARCHAR" property="tagNo" />
+    <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
+    <result column="tag_type_no" jdbcType="VARCHAR" property="tagTypeNo" />
+    <result column="tag_type_name" jdbcType="VARCHAR" property="tagTypeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tag_no, tag_name, tag_type_no, tag_type_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tag_base_info
+    where tag_no = #{tagNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tag_base_info
+    where tag_no = #{tagNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.TagBaseInfo">
+    insert into tag_base_info (tag_no, tag_name, tag_type_no, 
+      tag_type_name)
+    values (#{tagNo,jdbcType=VARCHAR}, #{tagName,jdbcType=VARCHAR}, #{tagTypeNo,jdbcType=VARCHAR}, 
+      #{tagTypeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.TagBaseInfo">
+    insert into tag_base_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tagNo != null">
+        tag_no,
+      </if>
+      <if test="tagName != null">
+        tag_name,
+      </if>
+      <if test="tagTypeNo != null">
+        tag_type_no,
+      </if>
+      <if test="tagTypeName != null">
+        tag_type_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tagNo != null">
+        #{tagNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tagName != null">
+        #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="tagTypeNo != null">
+        #{tagTypeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tagTypeName != null">
+        #{tagTypeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.TagBaseInfo">
+    update tag_base_info
+    <set>
+      <if test="tagName != null">
+        tag_name = #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="tagTypeNo != null">
+        tag_type_no = #{tagTypeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tagTypeName != null">
+        tag_type_name = #{tagTypeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tag_no = #{tagNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.TagBaseInfo">
+    update tag_base_info
+    set tag_name = #{tagName,jdbcType=VARCHAR},
+      tag_type_no = #{tagTypeNo,jdbcType=VARCHAR},
+      tag_type_name = #{tagTypeName,jdbcType=VARCHAR}
+    where tag_no = #{tagNo,jdbcType=VARCHAR}
+  </update>
 </mapper>
