@@ -11,17 +11,35 @@
  	
  	<script src="../../yljs/jmobile/jquery.mobile-1.4.5.min.js"></script>
  	<style type="text/css">
- 		.yl_line{
- 			white-space: nowrap; //文本强制不换行
-			text-overflow:ellipsis; //文本溢出显示省略号
-			overflow:hidden;   // 溢出的部分隐藏
+ 		body, a, p {
+ 			font: 12px/1.5 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif;
  		}
+ 		
+ 		/*双页显示图片间距设置*/
+ 		.p_s_jianju{
+ 			padding: 1px 3px 1px 3px;
+ 			margin-bottom: 2px;
+ 		}
+ 		
+ 		/*图片标题，长度过长，省略号设置*/
+ 		#pic_title{
+ 			display:-webkit-box;
+		    -webkit-line-clamp:1;
+		    -webkit-box-orient:vertical;
+		    overflow:hidden;
+			font-size:15px;
+			font-family: Microsoft YaHei;
+ 		}
+ 		
+ 		/*双页显示，每行显示的间距
  		.ui-block-a{
  			margin-bottom:10px;
  		}
  		.ui-block-b{
  			margin-bottom:10px;
  		}
+ 		*/
+ 		
  		/*设置显示区域下面的间距及对齐方式*/
  		#title .ui-block-a {
 		    width : 15%;	    
@@ -48,6 +66,75 @@
 		    text-align: left;
 		}
  	
+ 	
+ 		/*单页显示：设置显示区域下面的间距及对齐方式*/
+ 		#dy_title1 .ui-block-a {
+		    width : 15%;	    
+		    text-align: left;
+		}
+		#dy_title1 .ui-block-b {
+		    width : 55%;
+		    position:absolute
+		    font-weight: bold;
+		    text-align: left;
+		    
+		}
+		/*调整div中a标记在div的位置，上下*/
+		#dy_title1 .ui-block-b a{
+			position:absolute;
+			/*bottom:10px;  把a标记的底边缘设置在其包含元素底边缘之上 5 像素高的位置*/
+			/*padding-bottom: 10px;内边距*/
+			margin-top:4px;/*外边距*/
+			text-decoration:none;/*去掉锚文本下划线案例*/
+		    
+		}
+		#dy_title1 .ui-block-c {
+		    width : 30%;
+			/*bottom:10px;  把a标记的底边缘设置在其包含元素底边缘之上 5 像素高的位置*/
+			/*padding-bottom: 10px;内边距*/
+			margin-top:4px;/*外边距*/
+		    text-align: left;
+		}
+		
+		/*单页显示：设置四个图标显示区域下面的间距及对齐方式*/
+ 		#dy_title2 .ui-block-a {
+		    width : 20%;	    
+		    text-align: left;
+		}
+		#dy_title2 .ui-block-b {
+		    width : 20%;
+		    text-align: left;
+		}
+		#dy_title2 .ui-block-c {
+		    width : 20%;	    
+		    text-align: left;
+		}
+		#dy_title2 .ui-block-d {
+		    width : 40%;
+		    text-align: right;
+		}
+		
+		/*长文本设置省略号*/
+		.p_d_content {
+		    display:-webkit-box;
+		    -webkit-line-clamp:3;
+		    -webkit-box-orient:vertical;
+		    overflow:hidden;
+			font-size:15px;
+			font-family: Microsoft YaHei;
+		}
+		
+		.p_h_font{
+			color: #A9A9A9;
+			font-size:15px;
+			font-family: 黑体;
+		}
+		
+		/* 单页显示设置上边距*/
+		.p_d_top{
+			margin-top: 8px;
+		}
+		
  	</style>
  	<script type="text/javascript">
  	$(document).ready(function() { 
@@ -55,9 +142,8 @@
  		 var fblw = document.body.offsetWidth*0.45;
  	 	 var fblh = document.body.offsetHeight*0.3;
  	 	 
- 	 	// alert(fblw);
-
- 	 	// alert(fblh);
+ 	 	 //alert("宽：" + fblw);
+ 	 	 //alert("高：" + fblh);
  	 	
  		 $.getJSON ("a.json", function (data)  
          {  
@@ -66,12 +152,12 @@
                  var textid = "libiao" + i;
         		 $ ("#disp").append ("<div id = '"+ textid +"'>");
         		 if(i%2 ==0 ){
-        			 $ ("#"+textid+"").addClass("ui-block-a");
+        			 $ ("#"+textid+"").addClass("ui-block-a p_s_jianju");
             	 }else{
-            		 $ ("#"+textid+"").addClass("ui-block-b");
+            		 $ ("#"+textid+"").addClass("ui-block-b p_s_jianju");
                  }
-                 $ ("#"+textid+"").append ("<img src='" + item.img + "' style='width: " + fblw +"px; height: "+ fblh +"px;'></img>");  
-                 $ ("#"+textid+"").append ("<p><b>" + item.sex + "</b></p>");  
+                 $ ("#"+textid+"").append ("<img src='" + item.img + "' style='width: 100%; height: "+ fblh +"px;'></img>");  
+                 $ ("#"+textid+"").append ("<p id='pic_title'><b>" + item.sex + "</b></p>");  
                  $ ("#"+textid+"").append ("<div class='ui-grid-b' id='title'><div class='ui-block-a'><a href='#'> <img src="+ item.touxiang +" class='ui-shadow ui-corner-all  ui-btn-icon-notext'/></a></div><div class='ui-block-b'><a href='#'> " + item.email + "</a></div><div class='ui-block-c'><a href='#'> <img src="+ item.zan +" class='ui-shadow ui-btn-icon-notext'/></a></div></div>");  
                 // $ ("#"+textid+"").append ("<p>" + item.email + "</p>");  
              });  
@@ -95,15 +181,34 @@
     </div>
   </div>
   
-  <div data-role="main" class="ui-content">
+  <div data-role="main" class="ui-content" style="padding: 3px;">
   
 	   <div id="disp"  class="ui-grid-a"></div>
+	   
+	   <div id="disp1" style="border:1px solid #CFCFCF">
+	   		<div class='ui-grid-b p_d_top' id='dy_title1'>
+	   			<div class='ui-block-a'><a href='#'> <img src="../../ylimg/custom/1.jpg" class='ui-shadow ui-corner-all  ui-btn-icon-notext'/></a></div>
+	   			<div class='ui-block-b'><a href='#'> <strong>开始吧飞翔</strong></a></div>
+	   			<div class='ui-block-c'><strong>22343次赞</strong></div>
+	   		</div>
+	   		<div>
+	   			<a><img alt="" src="../../ylimg/custom/1.jpg" style="width: 405px; height: 400"></a>
+	   		</div>
+	   		<div class='ui-grid-c p_d_top' id='dy_title2'>
+	   			<div class='ui-block-a'><a href='#'> <img src="../../ylimg/custom/zan.png" class='ui-shadow ui-btn-icon-notext'/></a></div>
+	   			<div class='ui-block-b'><a href='#'> <img src="../../ylimg/jmobile/icons-png/comment-black.png" class='ui-shadow ui-btn-icon-notext'/></a></div>
+	   			<div class='ui-block-c'><a href='#'> <img src="../../ylimg/jmobile/icons-png/forward-black.png" class='ui-shadow ui-btn-icon-notext'/></a></div>
+	   			<div class='ui-block-d'><a href='#'> <img src="../../ylimg/jmobile/icons-png/star-black.png" class='ui-shadow ui-btn-icon-notext'/></a></div>
+	   		</div>
+	   		<div>
+	   			<p class="p_d_content">跨浏览器兼容那个，假如内容是从后台读取的，没超过三行的时候，岂不是也加了三个点在第三行最后？除非不指定行高和高度，那又怎样判断超过三行末尾显示省略号呢内容是从后台读取的，没超过三行的时候，岂不是也加了三个点在第三行最后？除非不指定行高和高度，那又怎样判断超过三行末尾显示省略号呢</p>
+	   			<div class='ui-grid-a'>
+		   			<div class='ui-block-a p_h_font'>所有909条评论</div>
+		   			<div class='ui-block-b p_h_font'  style="text-align:center;">2小时前</div>
+	   			</div>
+	   		</div>
+	   </div>
   </div>  
-	   	主页内容
-	   	主页内容
-	   	主页内容
-	   	主页内容
-	   	主页内容
 	   
 	   
    <div data-role="popup" id="myPopup2" class="ui-content">

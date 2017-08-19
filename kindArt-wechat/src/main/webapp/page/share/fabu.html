@@ -83,7 +83,9 @@
 			});
 		}
 
-		
+		function submitPage(){
+			document.getElementById("form1").submit();
+		}
 		
 	</script>
 
@@ -95,32 +97,30 @@
        <a href="index.html" class="ui-btn ui-corner-all ui-shadow ui-icon-carat-l ui-btn-icon-left" >返回</a>
     <h1>发布作品</h1>
   </div>
-  
-  <div data-role="main" class="ui-content">
-  
-	  <div>
-	  	<input type="text" value="请输入标题" onfocus="this.value=''" onblur="if(this.value==''){this.value='请输入标题'}">
-	  </div>
+  <form action="/kindArt-wechat/page/share/test.jsp" name="form1" id="form1"  enctype=”multipart/form-data”>
+	  <div data-role="main" class="ui-content">
+		  <div>
+		  	<input type="text" name="title" id="title" value="请输入标题" onfocus="this.value=''" onblur="if(this.value==''){this.value='请输入标题'}">
+		  </div>
+		  
+		  <hr>
+		   
+		   <div class="ui-field-contain">
+	        <textarea name="addinfo" id="addinfo" onfocus="this.value=''" onblur="if(this.value==''){this.value='说说你的心得吧！'}">说说你的心得吧！ </textarea>
+	      </div>
+	       <div id='yulan'> </div>
+		  <div >
+			  <input id="HTML_Browse_up" type="file" onchange="xmTanUploadImg(this)" accept="image/*"  multiple name="HTML_Browse_up"> 
+		  </div>
 	  
-	  <hr>
-	   
-	   <div class="ui-field-contain">
-        <textarea name="addinfo" id="info" onfocus="this.value=''" onblur="if(this.value==''){this.value='说说你的心得吧！'}">说说你的心得吧！ </textarea>
-      </div>
-       <div id='yulan'> </div>
-	  <div >
-		  <input id="HTML_Browse_up" type="file" onchange="xmTanUploadImg(this)" accept="image/*"  multiple name="HTML_Browse_up"> 
+	  	  <div id="biaoqian" style="margin-top: 10px;">
+	  	   	<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-tag ui-btn-icon-right" >标签</a>
+	  	  </div>
 	  </div>
-  
-  	  <div id="biaoqian" style="margin-top: 10px;">
-  	   	<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-tag ui-btn-icon-right" >标签</a>
-  	  </div>
-  
-  </div>
-
-  <div data-role="footer" data-position="fixed" style="background-color: red;" class="ui-corner-all">
-        <a href="javascript:requestJson()"><h1>发   布</h1></a>
-    </div>
+	  <div data-role="footer" data-position="fixed" style="background-color: red;" class="ui-corner-all">
+	        <a href="javascript:submitPage()"><h1>发   布</h1></a>
+	  </div>
+    </form>
 </div> 
 
 </body>
