@@ -1,7 +1,7 @@
 package com.kindArt.manager.json.Json002;
 
 
-public class Json004Req {
+public class Json002Req {
 
 	private String activityId;// 社区动态、热门话题ID
 	private String type;// 类型

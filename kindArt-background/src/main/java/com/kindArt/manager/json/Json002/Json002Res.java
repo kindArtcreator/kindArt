@@ -2,13 +2,13 @@ package com.kindArt.manager.json.Json002;
 
 import java.util.List;
 
-public class Json004Res {
+public class Json002Res {
 
 	private ReturnObj returnObj;
 
 	private List<ActivityImg> activityImgs;
 
-	private List<ActivityObj> activityObjs;
+	private ActivityObj activityObj;
 
 	public List<ActivityImg> getActivityImgs() {
 		return activityImgs;
@@ -16,14 +16,6 @@ public class Json004Res {
 
 	public void setActivityImgs(List<ActivityImg> activityImgs) {
 		this.activityImgs = activityImgs;
-	}
-
-	public List<ActivityObj> getActivityObjs() {
-		return activityObjs;
-	}
-
-	public void setActivityObjs(List<ActivityObj> activityObjs) {
-		this.activityObjs = activityObjs;
 	}
 
 	public List<CommentAnswer> getCommentAnswers() {
@@ -42,6 +34,14 @@ public class Json004Res {
 
 	public void setReturnObj(ReturnObj returnObj) {
 		this.returnObj = returnObj;
+	}
+
+	public ActivityObj getActivityObj() {
+		return activityObj;
+	}
+
+	public void setActivityObj(ActivityObj activityObj) {
+		this.activityObj = activityObj;
 	}
 
 }
