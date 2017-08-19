@@ -104,4 +104,210 @@
       maintenance_time = #{maintenanceTime,jdbcType=TIMESTAMP}
     where uuid = #{uuid,jdbcType=VARCHAR}
   </update>
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.FindPublisherBase">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="subject_photo_no" jdbcType="VARCHAR" property="subjectPhotoNo" />
+    <result column="logo_photo_no" jdbcType="VARCHAR" property="logoPhotoNo" />
+    <result column="publishing_enterprise_name" jdbcType="VARCHAR" property="publishingEnterpriseName" />
+    <result column="publishing_enterprise_sumary" jdbcType="VARCHAR" property="publishingEnterpriseSumary" />
+    <result column="maintenance_time" jdbcType="TIMESTAMP" property="maintenanceTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, subject_photo_no, logo_photo_no, publishing_enterprise_name, publishing_enterprise_sumary, 
+    maintenance_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from find_publisher_base
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from find_publisher_base
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.FindPublisherBase">
+    insert into find_publisher_base (uuid, subject_photo_no, logo_photo_no, 
+      publishing_enterprise_name, publishing_enterprise_sumary, 
+      maintenance_time)
+    values (#{uuid,jdbcType=VARCHAR}, #{subjectPhotoNo,jdbcType=VARCHAR}, #{logoPhotoNo,jdbcType=VARCHAR}, 
+      #{publishingEnterpriseName,jdbcType=VARCHAR}, #{publishingEnterpriseSumary,jdbcType=VARCHAR}, 
+      #{maintenanceTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.FindPublisherBase">
+    insert into find_publisher_base
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="subjectPhotoNo != null">
+        subject_photo_no,
+      </if>
+      <if test="logoPhotoNo != null">
+        logo_photo_no,
+      </if>
+      <if test="publishingEnterpriseName != null">
+        publishing_enterprise_name,
+      </if>
+      <if test="publishingEnterpriseSumary != null">
+        publishing_enterprise_sumary,
+      </if>
+      <if test="maintenanceTime != null">
+        maintenance_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectPhotoNo != null">
+        #{subjectPhotoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="logoPhotoNo != null">
+        #{logoPhotoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="publishingEnterpriseName != null">
+        #{publishingEnterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="publishingEnterpriseSumary != null">
+        #{publishingEnterpriseSumary,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenanceTime != null">
+        #{maintenanceTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.FindPublisherBase">
+    update find_publisher_base
+    <set>
+      <if test="subjectPhotoNo != null">
+        subject_photo_no = #{subjectPhotoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="logoPhotoNo != null">
+        logo_photo_no = #{logoPhotoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="publishingEnterpriseName != null">
+        publishing_enterprise_name = #{publishingEnterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="publishingEnterpriseSumary != null">
+        publishing_enterprise_sumary = #{publishingEnterpriseSumary,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenanceTime != null">
+        maintenance_time = #{maintenanceTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.FindPublisherBase">
+    update find_publisher_base
+    set subject_photo_no = #{subjectPhotoNo,jdbcType=VARCHAR},
+      logo_photo_no = #{logoPhotoNo,jdbcType=VARCHAR},
+      publishing_enterprise_name = #{publishingEnterpriseName,jdbcType=VARCHAR},
+      publishing_enterprise_sumary = #{publishingEnterpriseSumary,jdbcType=VARCHAR},
+      maintenance_time = #{maintenanceTime,jdbcType=TIMESTAMP}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.FindPublisherBase">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="subject_photo_no" jdbcType="VARCHAR" property="subjectPhotoNo" />
+    <result column="logo_photo_no" jdbcType="VARCHAR" property="logoPhotoNo" />
+    <result column="publishing_enterprise_name" jdbcType="VARCHAR" property="publishingEnterpriseName" />
+    <result column="publishing_enterprise_sumary" jdbcType="VARCHAR" property="publishingEnterpriseSumary" />
+    <result column="maintenance_time" jdbcType="TIMESTAMP" property="maintenanceTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, subject_photo_no, logo_photo_no, publishing_enterprise_name, publishing_enterprise_sumary, 
+    maintenance_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from find_publisher_base
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from find_publisher_base
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.FindPublisherBase">
+    insert into find_publisher_base (uuid, subject_photo_no, logo_photo_no, 
+      publishing_enterprise_name, publishing_enterprise_sumary, 
+      maintenance_time)
+    values (#{uuid,jdbcType=VARCHAR}, #{subjectPhotoNo,jdbcType=VARCHAR}, #{logoPhotoNo,jdbcType=VARCHAR}, 
+      #{publishingEnterpriseName,jdbcType=VARCHAR}, #{publishingEnterpriseSumary,jdbcType=VARCHAR}, 
+      #{maintenanceTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.FindPublisherBase">
+    insert into find_publisher_base
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="subjectPhotoNo != null">
+        subject_photo_no,
+      </if>
+      <if test="logoPhotoNo != null">
+        logo_photo_no,
+      </if>
+      <if test="publishingEnterpriseName != null">
+        publishing_enterprise_name,
+      </if>
+      <if test="publishingEnterpriseSumary != null">
+        publishing_enterprise_sumary,
+      </if>
+      <if test="maintenanceTime != null">
+        maintenance_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectPhotoNo != null">
+        #{subjectPhotoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="logoPhotoNo != null">
+        #{logoPhotoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="publishingEnterpriseName != null">
+        #{publishingEnterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="publishingEnterpriseSumary != null">
+        #{publishingEnterpriseSumary,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenanceTime != null">
+        #{maintenanceTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.FindPublisherBase">
+    update find_publisher_base
+    <set>
+      <if test="subjectPhotoNo != null">
+        subject_photo_no = #{subjectPhotoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="logoPhotoNo != null">
+        logo_photo_no = #{logoPhotoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="publishingEnterpriseName != null">
+        publishing_enterprise_name = #{publishingEnterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="publishingEnterpriseSumary != null">
+        publishing_enterprise_sumary = #{publishingEnterpriseSumary,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenanceTime != null">
+        maintenance_time = #{maintenanceTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.FindPublisherBase">
+    update find_publisher_base
+    set subject_photo_no = #{subjectPhotoNo,jdbcType=VARCHAR},
+      logo_photo_no = #{logoPhotoNo,jdbcType=VARCHAR},
+      publishing_enterprise_name = #{publishingEnterpriseName,jdbcType=VARCHAR},
+      publishing_enterprise_sumary = #{publishingEnterpriseSumary,jdbcType=VARCHAR},
+      maintenance_time = #{maintenanceTime,jdbcType=TIMESTAMP}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
 </mapper>

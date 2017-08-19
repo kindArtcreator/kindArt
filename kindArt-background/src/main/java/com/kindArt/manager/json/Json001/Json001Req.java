@@ -1,11 +1,9 @@
-package com.kindArt.manager.json;
+package com.kindArt.manager.json.Json001;
 
-public class Json016Req {
-	
+public class Json001Req {
 	private String userId;// 用户ID
-
 	
-	public Json016Req(){
+	public Json001Req(){
 		
 	}
 	

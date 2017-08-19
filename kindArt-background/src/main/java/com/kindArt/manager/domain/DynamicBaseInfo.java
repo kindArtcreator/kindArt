@@ -21,6 +21,12 @@ public class DynamicBaseInfo {
 
     private Integer sharedNum;
 
+    private Integer commentedNum;
+
+    private String imgUrl;
+
+    private Date commentedLastTime;
+
     public String getUuid() {
         return uuid;
     }
@@ -91,5 +97,29 @@ public class DynamicBaseInfo {
 
     public void setSharedNum(Integer sharedNum) {
         this.sharedNum = sharedNum;
+    }
+
+    public Integer getCommentedNum() {
+        return commentedNum;
+    }
+
+    public void setCommentedNum(Integer commentedNum) {
+        this.commentedNum = commentedNum;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl == null ? null : imgUrl.trim();
+    }
+
+    public Date getCommentedLastTime() {
+        return commentedLastTime;
+    }
+
+    public void setCommentedLastTime(Date commentedLastTime) {
+        this.commentedLastTime = commentedLastTime;
     }
 }

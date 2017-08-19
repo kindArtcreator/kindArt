@@ -1,13 +1,10 @@
-package com.kindArt.manager.json;
+package com.kindArt.manager.json.Json003;
 
-public class Json015Res {
+public class ReturnObj {
+	
 	private String code;// 返回结果编码
 	private String description;// 描述
 	
-	public Json015Res(){
-		
-	}
-
 	public String getCode() {
 		return code;
 	}

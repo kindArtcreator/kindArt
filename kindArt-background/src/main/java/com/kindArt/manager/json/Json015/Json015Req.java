@@ -1,14 +1,6 @@
-package com.kindArt.manager.json;
+package com.kindArt.manager.json.Json015;
 
-public class Json016Res {
-	
-	public Json016Res(){
-		
-	}
-	
-	private String code;// 返回结果编码
-	private String description;// 描述
-
+public class Json015Req {
 	private String personHPURL;// 个人头像地址
 	private String weChatNo;// 微信号
 	private String sex;// 性别
@@ -16,7 +8,12 @@ public class Json016Res {
 	private String constellation;// 星座
 	private String address;// 地址
 	private String autograph;// 个人签名
-
+	private String userId;// 用户ID
+	
+	public Json015Req(){
+		
+	}
+	
 	public String getPersonHPURL() {
 		return personHPURL;
 	}
@@ -73,20 +70,12 @@ public class Json016Res {
 		this.autograph = autograph;
 	}
 
-	public String getCode() {
-		return code;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 }

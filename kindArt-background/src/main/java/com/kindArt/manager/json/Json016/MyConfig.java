@@ -1,6 +1,7 @@
-package com.kindArt.manager.json;
+package com.kindArt.manager.json.Json016;
 
-public class Json015Req {
+public class MyConfig {
+
 	private String personHPURL;// 个人头像地址
 	private String weChatNo;// 微信号
 	private String sex;// 性别
@@ -8,12 +9,7 @@ public class Json015Req {
 	private String constellation;// 星座
 	private String address;// 地址
 	private String autograph;// 个人签名
-	private String userId;// 用户ID
-	
-	public Json015Req(){
-		
-	}
-	
+
 	public String getPersonHPURL() {
 		return personHPURL;
 	}
@@ -69,13 +65,4 @@ public class Json015Req {
 	public void setAutograph(String autograph) {
 		this.autograph = autograph;
 	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
 }

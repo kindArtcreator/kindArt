@@ -1,0 +1,19 @@
+package com.kindArt.manager.service;
+
+import com.kindArt.manager.domain.#classname#;
+
+public interface I#classname#Service {
+	
+	public void insert(#classname# record);  
+	
+	public int deleteByPrimaryKey(String uuid);
+
+	public int insertSelective(#classname# record);
+
+	public #classname# selectByPrimaryKey(String uuid);
+
+	public int updateByPrimaryKeySelective(#classname# record);
+
+	public int updateByPrimaryKey(#classname# record);
+	
+}

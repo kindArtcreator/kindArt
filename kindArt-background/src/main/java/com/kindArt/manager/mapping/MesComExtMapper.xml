@@ -79,4 +79,160 @@
       related_type = #{relatedType,jdbcType=VARCHAR}
     where uuid = #{uuid,jdbcType=VARCHAR}
   </update>
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.MesComExt">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="message_uuid" jdbcType="VARCHAR" property="messageUuid" />
+    <result column="related_uuid" jdbcType="VARCHAR" property="relatedUuid" />
+    <result column="related_type" jdbcType="VARCHAR" property="relatedType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, message_uuid, related_uuid, related_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mes_com_ext
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from mes_com_ext
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.MesComExt">
+    insert into mes_com_ext (uuid, message_uuid, related_uuid, 
+      related_type)
+    values (#{uuid,jdbcType=VARCHAR}, #{messageUuid,jdbcType=VARCHAR}, #{relatedUuid,jdbcType=VARCHAR}, 
+      #{relatedType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.MesComExt">
+    insert into mes_com_ext
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="messageUuid != null">
+        message_uuid,
+      </if>
+      <if test="relatedUuid != null">
+        related_uuid,
+      </if>
+      <if test="relatedType != null">
+        related_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="messageUuid != null">
+        #{messageUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedUuid != null">
+        #{relatedUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedType != null">
+        #{relatedType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.MesComExt">
+    update mes_com_ext
+    <set>
+      <if test="messageUuid != null">
+        message_uuid = #{messageUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedUuid != null">
+        related_uuid = #{relatedUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedType != null">
+        related_type = #{relatedType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.MesComExt">
+    update mes_com_ext
+    set message_uuid = #{messageUuid,jdbcType=VARCHAR},
+      related_uuid = #{relatedUuid,jdbcType=VARCHAR},
+      related_type = #{relatedType,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.kindArt.manager.domain.MesComExt">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="message_uuid" jdbcType="VARCHAR" property="messageUuid" />
+    <result column="related_uuid" jdbcType="VARCHAR" property="relatedUuid" />
+    <result column="related_type" jdbcType="VARCHAR" property="relatedType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, message_uuid, related_uuid, related_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mes_com_ext
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from mes_com_ext
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kindArt.manager.domain.MesComExt">
+    insert into mes_com_ext (uuid, message_uuid, related_uuid, 
+      related_type)
+    values (#{uuid,jdbcType=VARCHAR}, #{messageUuid,jdbcType=VARCHAR}, #{relatedUuid,jdbcType=VARCHAR}, 
+      #{relatedType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindArt.manager.domain.MesComExt">
+    insert into mes_com_ext
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="messageUuid != null">
+        message_uuid,
+      </if>
+      <if test="relatedUuid != null">
+        related_uuid,
+      </if>
+      <if test="relatedType != null">
+        related_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="messageUuid != null">
+        #{messageUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedUuid != null">
+        #{relatedUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedType != null">
+        #{relatedType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindArt.manager.domain.MesComExt">
+    update mes_com_ext
+    <set>
+      <if test="messageUuid != null">
+        message_uuid = #{messageUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedUuid != null">
+        related_uuid = #{relatedUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedType != null">
+        related_type = #{relatedType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindArt.manager.domain.MesComExt">
+    update mes_com_ext
+    set message_uuid = #{messageUuid,jdbcType=VARCHAR},
+      related_uuid = #{relatedUuid,jdbcType=VARCHAR},
+      related_type = #{relatedType,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
 </mapper>

@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kindArt.manager.domain.UserBaseInfo;
-import com.kindArt.manager.json.Json015Req;
-import com.kindArt.manager.json.Json015Res;
-import com.kindArt.manager.json.Json016Req;
-import com.kindArt.manager.json.Json016Res;
+import com.kindArt.manager.json.Json015.Json015Req;
+import com.kindArt.manager.json.Json015.Json015Res;
+import com.kindArt.manager.json.Json016.Json016Req;
+import com.kindArt.manager.json.Json016.Json016Res;
+import com.kindArt.manager.json.Json016.MyConfig;
+import com.kindArt.manager.json.Json016.ReturnObj;
 import com.kindArt.manager.service.IUserBaseInfoService;
   
   
@@ -58,18 +60,26 @@ public class UserBaseInfoController {
     	
 		Json016Res jr = new Json016Res();
 		
+		MyConfig mc = new MyConfig();
+		
+		ReturnObj ro = new ReturnObj();
+		
     	try {
     		UserBaseInfo ubi = userBaseInfoService.getUserById(jsonReqObj.getUserId());
-        	jr.setAddress(ubi.getMyAddress());
-        	jr.setAutograph(ubi.getHeadSculpture());
-        	jr.setBirthday(ubi.getBirthday());
-        	jr.setCode("0000");
+    		mc.setAddress(ubi.getMyAddress());
+    		mc.setAutograph(ubi.getHeadSculpture());
+    		mc.setBirthday(ubi.getBirthday());
+    		ro.setCode("0000");
         	//TODO jr.setConstellation("");
-        	jr.setDescription("成功");
+    		ro.setDescription("成功");
 		} catch (Exception e) {
-			jr.setCode("9999");
-			jr.setDescription(e.getMessage());
+			ro.setCode("9999");
+			ro.setDescription(e.getMessage());
 		}
+    	
+    	jr.setMyConfig(mc);
+    	
+    	jr.setReturnObj(ro);
     	
     	return jr;
     }
