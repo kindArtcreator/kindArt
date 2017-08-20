@@ -21,7 +21,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 public class FileUploaderController {
 	@RequestMapping(value = "uploader", produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
 	@ResponseBody
-	public String getJsonDataFromXlsxFile(HttpServletRequest request,
+	public String getJsonDataFromFile(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
 		String returnJson = "";
@@ -36,7 +36,7 @@ public class FileUploaderController {
 
 		try {
 			File file = new File(filePath);
-			if(!file.exists()){
+			if (!file.exists()) {
 				file.mkdirs();
 			}
 			// 判断 request 是否有文件上传,即多部分请求
@@ -86,6 +86,39 @@ public class FileUploaderController {
 					}
 				}
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (fileOutputStream != null) {
+				fileOutputStream.close();
+			}
+			if (inputStream != null) {
+				inputStream.close();
+			}
+			return returnJson;
+		}
+	}
+
+	@RequestMapping(value = "uploaderOrg", produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
+	@ResponseBody
+	public String getDataFromFile(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		String returnJson = "";
+		
+		
+
+		// 当前用户
+		InputStream inputStream = null;
+		FileOutputStream fileOutputStream = null;
+		String filePath = "D:/testfilePath";
+
+		try {
+			File file = new File(filePath);
+			if (!file.exists()) {
+				file.mkdirs();
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

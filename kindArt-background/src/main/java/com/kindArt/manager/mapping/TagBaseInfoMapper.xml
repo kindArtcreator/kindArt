@@ -79,4 +79,9 @@
       tag_type_name = #{tagTypeName,jdbcType=VARCHAR}
     where tag_no = #{tagNo,jdbcType=VARCHAR}
   </update>
+   <select id="selectList" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tag_base_info
+  </select>
 </mapper>

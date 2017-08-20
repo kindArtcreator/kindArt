@@ -1,5 +1,7 @@
 package com.kindArt.manager.dao;
 
+import java.util.List;
+
 import com.kindArt.manager.domain.TagBaseInfo;
 
 public interface TagBaseInfoMapper {
@@ -14,4 +16,6 @@ public interface TagBaseInfoMapper {
     int updateByPrimaryKeySelective(TagBaseInfo record);
 
     int updateByPrimaryKey(TagBaseInfo record);
+    
+    List<TagBaseInfo> selectList();
 }

@@ -1,5 +1,7 @@
 package com.kindArt.manager.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -50,5 +52,12 @@ public class TagBaseInfoServiceImpl implements ITagBaseInfoService {
 		
 		return this.tagBaseInfoDao.updateByPrimaryKey(record);
 	}
+	
+	@Override
+	public List<TagBaseInfo> selectList() {
+		
+		return this.tagBaseInfoDao.selectList();
+	}
+
 
 }

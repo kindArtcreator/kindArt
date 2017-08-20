@@ -8,7 +8,7 @@
 <title>测试</title>
 </head>
 <body>
-
+<button id="btnExcelImport" >导入EXCEL</button>  
 </body>
 <script type="text/javascript">
 	//请求json，输出是json
@@ -39,7 +39,7 @@
 		$.ajax({
 			type : 'post',
 			//url : '${pageContext.request.contextPath }/userBaseInfo/read',
-			url : '${pageContext.request.contextPath }/dynamicBaseInfo/insert',
+			url : '${pageContext.request.contextPath }/tagBaseInfo/readTag',
 			contentType : 'application/json;charset=utf-8',//指定为json类型
 			//数据格式是json串，商品信息
 			data : JSON.stringify(jsonData),
@@ -51,5 +51,6 @@
 	}
 
 	requestJson();
+	
 </script>
 </html>

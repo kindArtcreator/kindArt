@@ -170,14 +170,18 @@ public class DynamicBaseInfoController {
 
 			com.kindArt.manager.json.Json002.ActivityObj ao = new com.kindArt.manager.json.Json002.ActivityObj();
 
-			ao.setTitle(dynamicInfo.getTitle());
+			ao.setTitle(dynamicInfo.getTitle());//标题
 			
-			ao.setContent(dynamicInfo.getComment());
+			ao.setContent(dynamicInfo.getComment());//内容
 			
-			ao.setCollectionNum(dynamicInfo.getCollectionNum()+"");
+			ao.setCollectionNum(dynamicInfo.getCollectionNum()+"");//评论数
 			
-			//ao.set
+			ao.setCommentNum(dynamicInfo.getCommentedNum()+"");//收藏数
 
+			ao.setLikedNum(dynamicInfo.getCommendedNum()+"");//点赞数
+			
+			
+			
 			jr.setActivityObj(ao);
 
 			com.kindArt.manager.json.Json002.ReturnObj ro = new com.kindArt.manager.json.Json002.ReturnObj();
